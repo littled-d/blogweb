@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0"
+         metadata-complete="true">
+
+  <!--配置初始参数-->
+  <context-param>
+    <param-name>url</param-name>
+    <param-value>jdbc:mysql://localhost:3306/mybatis</param-value>
+  </context-param>
+
+
+  <!--配置Session相关信息-->
+  <session-config>
+    <!--15分钟后自动注销，注意以min为单位-->
+    <session-timeout>15</session-timeout>
+  </session-config>
+
+
+  <!--第一简单的hello Servlet，在context中设置一个变量-->
+  <servlet>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>cn.xiejp.first.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  <!--取出在context中设置的变量，并请求转发到获取文件资源-->
+  <servlet>
+    <servlet-name>getHelloServlet</servlet-name>
+    <servlet-class>cn.xiejp.first.getHelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getHelloServlet</servlet-name>
+    <url-pattern>/get</url-pattern>
+  </servlet-mapping>
+
+  <!--获得初始设置在web.xml中的键值对-->
+  <servlet>
+    <servlet-name>servletDemo</servlet-name>
+    <servlet-class>cn.xiejp.first.InitResourceDemo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletDemo</servlet-name>
+    <url-pattern>/UrlDemo</url-pattern>
+  </servlet-mapping>
+
+  <!--读取文件资源-->
+  <servlet>
+    <servlet-name>Properties</servlet-name>
+    <servlet-class>cn.xiejp.first.PropertiesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Properties</servlet-name>
+    <url-pattern>/Properties</url-pattern>
+  </servlet-mapping>
+
+  <!--图片下载案例-->
+  <servlet>
+    <servlet-name>FileResponseServlet</servlet-name>
+    <servlet-class>cn.xiejp.first.FileResponseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileResponseServlet</servlet-name>
+    <url-pattern>/background</url-pattern>
+  </servlet-mapping>
+
+  <!--验证码生成案例-->
+  <servlet>
+    <servlet-name>ImageServlet</servlet-name>
+    <servlet-class>cn.xiejp.first.ImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ImageServlet</servlet-name>
+    <url-pattern>/img</url-pattern>
+  </servlet-mapping>
+
+  <!--重定向的应用-->
+  <servlet>
+    <servlet-name>RedirectServlet</servlet-name>
+    <servlet-class>cn.xiejp.first.RedirectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RedirectServlet</servlet-name>
+    <url-pattern>/redirect</url-pattern>
+  </servlet-mapping>
+
+  <!--重定向的应用-->
+  <servlet>
+    <servlet-name>RequestDemoServlet</servlet-name>
+    <servlet-class>cn.xiejp.first.RequestDemoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestDemoServlet</servlet-name>
+    <url-pattern>/request</url-pattern>
+  </servlet-mapping>
+
+  <!--测试Cookie应用-->
+  <servlet>
+    <servlet-name>cookieDemo</servlet-name>
+    <servlet-class>cn.xiejp.second.cookieDemo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cookieDemo</servlet-name>
+    <url-pattern>/cookie</url-pattern>
+  </servlet-mapping>
+
+  <!--测试Session应用-->
+  <servlet>
+    <servlet-name>SessionDemo</servlet-name>
+    <servlet-class>cn.xiejp.second.SessionDemo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionDemo</servlet-name>
+    <url-pattern>/session</url-pattern>
+  </servlet-mapping>
+
+  <!--验证Session实现数据共享应用-->
+  <servlet>
+    <servlet-name>getSessionDemo</servlet-name>
+    <servlet-class>cn.xiejp.second.getSessionDemo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getSessionDemo</servlet-name>
+    <url-pattern>/getsession</url-pattern>
+  </servlet-mapping>
+
+</web-app>
